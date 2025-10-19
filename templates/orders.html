@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2 class="mb-4 text-teal">My Orders</h2>
+<h2 class="mb-4" style="background: linear-gradient(90deg, #00bfa5, #1de9b6); -webkit-background-clip: text; color: transparent;">
+  My Orders
+</h2>
+
 
 {% if orders %}
   {% for o in orders %}
@@ -28,10 +31,7 @@
             {% endfor %}
           </tbody>
         </table>
-        <!-- Button to go back to restaurants menu -->
-        <a href="{{ url_for('view_menu') }}" class="btn btn-outline-primary mt-3">
-          ← Back to Restaurants
-        </a>
+        
       </div>
     </div>
   {% endfor %}

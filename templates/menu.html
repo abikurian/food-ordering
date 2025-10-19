@@ -1,20 +1,37 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2 class="mb-4" style="color:#00bfa5;">Restaurants</h2> <!-- Teal heading for accent -->
+<h2 class="mb-4 text-gradient" style="background: linear-gradient(90deg, #00bfa5, #1de9b6); -webkit-background-clip: text; color: transparent;">
+  Restaurants
+</h2>
 
 <div class="row">
   {% for r in restaurants %}
-    <div class="col-md-6 mb-3">
-      <div class="card shadow-sm glass-card" style="background: rgba(255,255,255,0.25); color: #000;">
+    <div class="col-md-6 mb-4">
+      <div class="card shadow-lg" style="
+            background: linear-gradient(145deg, #ffffff, #d9fdf6);
+            border-radius: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+          "
+           onmouseover="this.style.transform='scale(1.03)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.2)';"
+           onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.1)';">
         <div class="card-body">
-          <h5 class="card-title" style="color:#1a1a1a;">{{ r.name }}</h5>
-          <p class="card-text" style="color:#333;">
-            Location: {{ r.location }} <br>
-            Rating: {{ r.rating }}
+          <h5 class="card-title" style="color:#00796b; font-weight:600;">{{ r.name }}</h5>
+          <p class="card-text" style="color:#004d40; font-size:0.95rem;">
+            📍 Location: {{ r.location }} <br>
+            ⭐ Rating: {{ r.rating }}
           </p>
           <a href="{{ url_for('restaurant_menu', rid=r.restaurant_id) }}" 
-             class="btn btn-outline-primary" 
-             style="border-color:#00bfa5; color:#00bfa5; border-radius:50px; transition: all 0.3s ease;">
+             class="btn btn-gradient mt-2" 
+             style="
+               background: linear-gradient(90deg, #00bfa5, #1de9b6);
+               color: #fff;
+               border-radius: 50px;
+               padding: 8px 20px;
+               font-weight: 500;
+               transition: all 0.3s ease;
+             "
+             onmouseover="this.style.background='linear-gradient(90deg, #1de9b6, #00bfa5)';"
+             onmouseout="this.style.background='linear-gradient(90deg, #00bfa5, #1de9b6)';">
             View Menu
           </a>
         </div>
@@ -22,4 +39,14 @@
     </div>
   {% endfor %}
 </div>
+
+<style>
+/* Optional: smooth card hover for mobile devices */
+@media (max-width: 768px) {
+  .card:hover {
+    transform: none !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15) !important;
+  }
+}
+</style>
 {% endblock %}
