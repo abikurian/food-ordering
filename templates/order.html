@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="mb-4">{{ restaurant.name }} Menu</h2>
+<div class="row">
+  {% for i in items %}
+    <div class="col-md-6 mb-3">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{ i.item_name }}</h5>
+          <p class="card-text">{{ i.description }} <br>Price: ₹{{ i.price }}</p>
+          <form action="{{ url_for('add_to_cart') }}" method="POST">
+            <input type="hidden" name="item" value="{{ i.item_id }}">
+            <button type="submit" class="btn btn-success w-100">Add to Cart</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+<a href="{{ url_for('home') }}" class="btn btn-secondary mt-3">← Back to Restaurants</a>
+<a href="{{ url_for('view_cart') }}" class="btn btn-primary mt-3 ms-2">🛒 View Cart</a>
+{% endblock %}

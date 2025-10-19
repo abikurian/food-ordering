@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="mb-4">Restaurants</h2>
+<div class="row">
+  {% for r in restaurants %}
+    <div class="col-md-6 mb-3">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{ r.name }}</h5>
+          <p class="card-text">Location: {{ r.location }} <br>Rating: {{ r.rating }}</p>
+          <a href="{{ url_for('restaurant_menu', rid=r.restaurant_id) }}" class="btn btn-primary">View Menu</a>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

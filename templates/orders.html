@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="mb-4">My Orders</h2>
+
+{% if orders %}
+  {% for o in orders %}
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header bg-primary text-white">
+        Order #{{ o.order.order_id }} - ₹{{ "%.2f"|format(o.order.total_amount) }} - 
+        {{ o.order.order_time.strftime("%d %b %Y %H:%M") if o.order.order_time else "N/A" }}
+      </div>
+      <div class="card-body table-responsive">
+        <table class="table table-striped table-sm">
+          <thead class="table-light">
+            <tr>
+              <th>Item</th>
+              <th>Quantity</th>
+              <th>Subtotal (₹)</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for i in o.order_items %}
+              <tr>
+                <td>{{ i.item_name }}</td>
+                <td>{{ i.quantity }}</td>
+                <td>{{ "%.2f"|format(i.subtotal) }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  {% endfor %}
+{% else %}
+  <div class="alert alert-info">You have no orders yet.</div>
+{% endif %}
+
+<a href="{{ url_for('home') }}" class="btn btn-primary mt-2">← Back to Restaurants</a>
+
+{% endblock %}
