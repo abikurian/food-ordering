@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="d-flex flex-column align-items-center" style="min-height: 100vh; padding-top: 60px; padding-bottom: 100px;">
+
+  <!-- Glass Hero Card -->
+  <div class="glass-card text-center p-5 mb-5" style="max-width: 700px; border-radius: 20px;">
+    <h1 class="fw-bold display-4">Delicious Food Delivered Fast</h1>
+    <p class="lead mb-4">Browse local restaurants and track your order in real-time.</p>
+    <a href="{{ url_for('view_menu') }}" class="btn btn-lg btn-primary">Order Now</a>
+  </div>
+
+  <!-- Feature Cards Section -->
+  <div class="container">
+    <div class="row g-4">
+      <!-- Card 1: Live Tracking -->
+      <div class="col-md-4">
+        <div class="card shadow-sm h-100 text-center p-3">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <h5 class="card-title fw-bold">Live Order Tracking</h5>
+            <p class="card-text">See your delivery driver's real-time location.</p>
+            <a href="{{ url_for('view_orders') }}" class="btn btn-outline-primary mt-auto">Track My Order</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Browse By Cuisine -->
+      <div class="col-md-4">
+        <div class="card shadow-sm h-100 text-center p-3">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <h5 class="card-title fw-bold">Browse By Cuisine</h5>
+            <p class="card-text">Quickly find restaurants by type (e.g., Italian, Asian, Desserts).</p>
+            <a href="{{ url_for('view_menu') }}" class="btn btn-outline-primary mt-auto">View Cuisines</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Daily Deals -->
+      <div class="col-md-4">
+        <div class="card shadow-sm h-100 text-center p-3">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <h5 class="card-title fw-bold">Daily Deals & Offers</h5>
+            <p class="card-text">Discover the best discounts from local restaurants today.</p>
+            <a href="{{ url_for('view_menu') }}" class="btn btn-outline-primary mt-auto">See Today's Deals</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- Floating Cart Button -->
+<a href="{{ url_for('view_cart') }}" 
+   class="position-fixed d-flex align-items-center justify-content-center" 
+   style="bottom: 80px;  /* some distance from feature cards */
+          right: 20px; 
+          width: 60px; 
+          height: 60px; 
+          background-color: #4a148c; 
+          color: #fff; 
+          border-radius: 50%; 
+          box-shadow: 0 4px 8px rgba(0,0,0,0.3); 
+          font-size: 1.5rem; 
+          z-index: 1000;">
+   🛒
+</a>
+
+<style>
+/* Body Background */
+body {
+  background: linear-gradient(135deg, #4a148c, #6a1b9a);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+}
+
+/* Glassmorphism Hero Card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+.glass-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #00bfa5;
+  border-color: #00bfa5;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+.btn-primary:hover {
+  background-color: #008e76;
+  border-color: #008e76;
+  transform: translateY(-2px);
+}
+
+.btn-outline-primary {
+  border-color: #00bfa5;
+  color: #00bfa5;
+  padding: 10px 25px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+.btn-outline-primary:hover {
+  background-color: #00bfa5;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Feature Cards */
+.card {
+  border-radius: 15px;
+}
+.card-title {
+  color: #333;
+}
+.card-text {
+  color: #555;
+}
+
+
+
+/* Responsive tweaks */
+@media (max-width: 767px) {
+  .glass-card {
+    padding: 30px 20px;
+  }
+}
+</style>
+{% endblock %}

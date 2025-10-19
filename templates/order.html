@@ -17,6 +17,8 @@
     </div>
   {% endfor %}
 </div>
-<a href="{{ url_for('home') }}" class="btn btn-secondary mt-3">← Back to Restaurants</a>
+<a href="{{ url_for('view_menu') }}" class="btn btn-primary">← Back to Restaurants</a>
+
+
 <a href="{{ url_for('view_cart') }}" class="btn btn-primary mt-3 ms-2">🛒 View Cart</a>
 {% endblock %}

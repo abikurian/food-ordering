@@ -13,13 +13,18 @@ app.secret_key = "my_super_secret_key_123"  # Required for session management
 # --- HOME / RESTAURANTS ---
 @app.route('/')
 def home():
+    current_year = datetime.now().year
+    return render_template('home.html', current_year=current_year)
+
+@app.route('/menu')
+def view_menu():
     conn = get_connection()
     cur = conn.cursor()
     cur.execute("SELECT * FROM restaurants")
     restaurants = cur.fetchall()
     conn.close()
-
-    current_year = datetime.now().year  # Pass current year
+    
+    current_year = datetime.now().year
     return render_template('menu.html', restaurants=restaurants, current_year=current_year)
 
 
@@ -36,6 +41,7 @@ def restaurant_menu(rid):
 
     conn.close()
     return render_template('order.html', restaurant=restaurant, items=items)
+
 
 
 # --- CART MANAGEMENT ---

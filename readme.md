@@ -41,24 +41,24 @@ Easily browse restaurants, add items to your cart, and place orders — all from
 ```bash
 git clone https://github.com/yourusername/food-ordering.git
 cd food-ordering/backend
-
+```
 2. Create a virtual environment and install dependencies
-
+```bash
 python -m venv venv
 venv\Scripts\activate       # Windows
 # source venv/bin/activate  # macOS/Linux
 
 pip install -r requirements.txt
-
+```
 
 3. Create the database
-
+```bash
 CREATE DATABASE food_ordering_db;
 USE food_ordering_db;
 
 -- Add tables: restaurants, menu, orders, order_items
 -- Run SQL scripts from `database/init.sql`
-
+```
 
 4. Update config.py with your MySQL credentials:
 
@@ -73,18 +73,18 @@ def get_connection():
 
 
 5. Run the app
-
+```bash
 python app.py
-
+```
 
 Visit http://127.0.0.1:5000 in your browser.
 
 📝 Future Improvements
 
-User authentication with multiple customer accounts.
+1. User authentication with multiple customer accounts.
 
-Payment gateway integration.
+2. Payment gateway integration.
 
-Search and filter restaurants by cuisine or rating.
+3. Search and filter restaurants by cuisine or rating.
 
-Admin panel to add/update restaurants and menu items dynamically.
+4. Admin panel to add/update restaurants and menu items dynamically.

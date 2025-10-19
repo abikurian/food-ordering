@@ -1,14 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2 class="mb-4">Restaurants</h2>
+<h2 class="mb-4" style="color:#00bfa5;">Restaurants</h2> <!-- Teal heading for accent -->
+
 <div class="row">
   {% for r in restaurants %}
     <div class="col-md-6 mb-3">
-      <div class="card shadow-sm">
+      <div class="card shadow-sm glass-card" style="background: rgba(255,255,255,0.25); color: #000;">
         <div class="card-body">
-          <h5 class="card-title">{{ r.name }}</h5>
-          <p class="card-text">Location: {{ r.location }} <br>Rating: {{ r.rating }}</p>
-          <a href="{{ url_for('restaurant_menu', rid=r.restaurant_id) }}" class="btn btn-primary">View Menu</a>
+          <h5 class="card-title" style="color:#1a1a1a;">{{ r.name }}</h5>
+          <p class="card-text" style="color:#333;">
+            Location: {{ r.location }} <br>
+            Rating: {{ r.rating }}
+          </p>
+          <a href="{{ url_for('restaurant_menu', rid=r.restaurant_id) }}" 
+             class="btn btn-outline-primary" 
+             style="border-color:#00bfa5; color:#00bfa5; border-radius:50px; transition: all 0.3s ease;">
+            View Menu
+          </a>
         </div>
       </div>
     </div>

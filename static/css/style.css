@@ -13,3 +13,25 @@ h2 {
 .btn {
   border-radius: 5px;
 }
+.hero {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.features .card:hover {
+    transform: translateY(-5px);
+    transition: all 0.3s ease-in-out;
+}
+.brand-accent {
+  color: #00bfa5; /* teal accent color */
+  font-weight: 700;
+}
+.page-title {
+  color: #00bfa5;         /* accent color */
+  font-weight: 700;        /* bold */
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
